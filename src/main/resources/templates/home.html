@@ -2,8 +2,43 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Bem - vindo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="css/icons.css"/>
+<link rel="stylesheet" href="css/home.css"/>
+<title>Control Vehicles API</title>
 </head>
 <body>
+
+    <main>
+        <div class="main--title text-uppercase text-white text-center">
+            <h2>Bem Vindo ao</h2>
+            <h1 class="font-weight-bold">Control Vehicles API</h1>
+        </div>
+        <div class="options d-flex justify-content-center align-items-center">
+            <div class="btn-round--group d-flex flex-wrap justify-content-center align-items-center">
+                <a class="btn-round" th:href="@{cadastro-usuario}">
+                    <span class="material-icons md-48 text-white">person_add</span>
+                    <span class="btn-round--title text-uppercase text-white">Cadastrar usuários</span>
+                </a>
+                <a class="btn-round" href="#">
+                    <span class="material-icons md-48 text-white">drive_eta</span>
+                    <span class="btn-round--title text-uppercase text-white">Cadastrar veículos</span>
+                </a>
+                <a class="btn-round" href="#">
+                    <span class="material-icons md-48 text-white">storage</span>
+                    <span class="btn-round--title text-uppercase text-white">Lista de cadastros</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="small d-flex justify-content-center align-items-center">
+        Rodrigo Santos | 2021 &copy; Todos os direitos reservados
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
 </body>
 </html>

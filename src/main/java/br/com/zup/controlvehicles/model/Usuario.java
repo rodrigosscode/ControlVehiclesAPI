@@ -13,8 +13,8 @@ import javax.persistence.OneToMany;
 public class Usuario {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id = -1L;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id = null;
 	
 	private String nome = "";
 	
@@ -76,4 +76,12 @@ public class Usuario {
 	public void setVeiculos(List<Veiculo> veiculos) {
 		this.veiculos = veiculos;
 	}
+
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", nome=" + nome + ", email=" + email + ", cpf=" + cpf + ", dataNascimento="
+				+ dataNascimento + ", veiculos=" + veiculos + "]";
+	}
+	
+	
 }

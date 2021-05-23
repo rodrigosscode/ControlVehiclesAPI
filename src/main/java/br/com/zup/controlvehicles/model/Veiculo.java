@@ -11,8 +11,8 @@ import javax.persistence.Transient;
 public class Veiculo {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id = -1L;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id = null;
 	
 	private String marca = "";
 	private String modelo = "";
