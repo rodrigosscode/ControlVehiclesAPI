@@ -1,5 +1,7 @@
 package br.com.zup.controlvehicles.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,11 +36,18 @@ public class UsuarioController {
 		return modelAndView;
 	}
 	
-	@PostMapping("cadastro-usuario/add")
+	@PostMapping("cadastro-usuario/usuarios/adiciona")
 	public ResponseEntity<Usuario> adicionarViaAPI(@RequestBody Usuario usuario) {
 		System.out.println("POST: Usuário via (REST API): " + usuario);
 		service.salva(usuario);
 		return new ResponseEntity<Usuario>(usuario, HttpStatus.CREATED);
+	}
+	
+	@GetMapping(value="cadastro-usuario/usuarios/todos")
+	public ResponseEntity<List<Usuario>> listarViaAPI() {
+		System.out.println("GET: Todos Usuários via (REST API): ");		
+		List<Usuario> usuarios = service.obtemTodos();
+		return new ResponseEntity<List<Usuario>>(usuarios, HttpStatus.ACCEPTED);
 	}
 	
 }

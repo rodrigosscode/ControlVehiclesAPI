@@ -4,10 +4,13 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity(name = "tbl_usuario")
 public class Usuario {
@@ -26,7 +29,8 @@ public class Usuario {
 	
 	private String dataNascimento = "";
 	
-	@OneToMany(mappedBy = "usuario")
+	@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
+	@JsonManagedReference
 	private List<Veiculo> veiculos = null;
 	
 	public Long getId() {

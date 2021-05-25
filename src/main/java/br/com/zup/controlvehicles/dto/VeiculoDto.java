@@ -2,6 +2,8 @@ package br.com.zup.controlvehicles.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import br.com.zup.controlvehicles.model.Veiculo;
+
 public class VeiculoDto {
 
 	@JsonProperty("Valor")
@@ -102,4 +104,20 @@ public class VeiculoDto {
 		this.siglaCombustivel = siglaCombustivel;
 	}
 	
+	public Veiculo toVeiculo() {
+		Veiculo veiculo = new Veiculo();
+		
+		veiculo.setMarca(this.marca);
+		veiculo.setModelo(this.modelo);
+		veiculo.setAno(this.anoModelo);
+		
+		return veiculo;
+	}
+
+	@Override
+	public String toString() {
+		return "VeiculoDto [valor=" + valor + ", marca=" + marca + ", modelo=" + modelo + ", anoModelo=" + anoModelo
+				+ ", combustivel=" + combustivel + ", codigoFipe=" + codigoFipe + ", mesReferencia=" + mesReferencia
+				+ ", tipoVeiculo=" + tipoVeiculo + ", siglaCombustivel=" + siglaCombustivel + "]";
+	}
 }

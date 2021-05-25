@@ -12,7 +12,6 @@ import br.com.zup.controlvehicles.dto.VeiculoDto;
 import br.com.zup.controlvehicles.feign.client.FIPEClient;
 import br.com.zup.controlvehicles.model.Ano;
 import br.com.zup.controlvehicles.model.Marca;
-import br.com.zup.controlvehicles.model.TipoVeiculo;
 import br.com.zup.controlvehicles.response.ModeloResponse;
 
 @RestController

@@ -7,6 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity(name = "tbl_veiculo")
 public class Veiculo {
 
@@ -19,12 +22,15 @@ public class Veiculo {
 	private int ano = 0;
 	
 	@Transient
+	@JsonIgnore
 	private int diaRodizio = 0;
 	
 	@Transient
+	@JsonIgnore
 	private boolean rodizioAtivo = false;
 	
 	@ManyToOne
+	@JsonBackReference
 	private Usuario usuario = null;
 
 	public Long getId() {
