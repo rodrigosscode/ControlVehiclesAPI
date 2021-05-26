@@ -14,11 +14,14 @@ import org.springframework.web.servlet.ModelAndView;
 import br.com.zup.controlvehicles.api.FIPEApi;
 import br.com.zup.controlvehicles.controller.form.VeiculoForm;
 import br.com.zup.controlvehicles.dto.VeiculoDto;
+import br.com.zup.controlvehicles.model.Carro;
+import br.com.zup.controlvehicles.model.Moto;
 import br.com.zup.controlvehicles.model.TipoVeiculo;
 import br.com.zup.controlvehicles.model.Usuario;
 import br.com.zup.controlvehicles.model.Veiculo;
 import br.com.zup.controlvehicles.service.UsuarioService;
 import br.com.zup.controlvehicles.service.VeiculoService;
+import br.com.zup.controlvehicles.util.DiaRodizioUtil;
 
 @RestController
 public class VeiculoController {
@@ -49,7 +52,14 @@ public class VeiculoController {
 				veiculoForm.getModelo(), veiculoForm.getAno());
 		
 		Veiculo veiculo = veiculoDto.toVeiculo();
-
+		if (veiculo instanceof Carro) {
+			Carro carro = (Carro) veiculo;			
+			carro.setDiaRodizio(DiaRodizioUtil.obtemDiaRodizioDescricao(carro));
+			carro.setRodizioAtivo(false);	
+			
+			veiculo = carro;
+		} 
+		
 		Optional<Usuario> usuario = usuarioService.obtemPorId(veiculoForm.getUsuarioId());
 		if (usuario.isPresent()) {
 			veiculo.setUsuario(usuario.get());
@@ -70,6 +80,13 @@ public class VeiculoController {
 				veiculoForm.getModelo(), veiculoForm.getAno());
 		
 		Veiculo veiculo = veiculoDto.toVeiculo();
+		if (veiculo instanceof Carro) {
+			Carro carro = (Carro) veiculo;			
+			carro.setDiaRodizio(DiaRodizioUtil.obtemDiaRodizioDescricao(carro));
+			carro.setRodizioAtivo(false);	
+			
+			veiculo = carro;
+		} 
 
 		Optional<Usuario> usuario = usuarioService.obtemPorId(veiculoForm.getUsuarioId());
 		if (usuario.isPresent()) {

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="css/icons.css"/>
+<link rel="stylesheet" href="css/home.css"/>
+<title>Control Vehicles API - Lista de cadastrados</title>
+</head>
+<body>
+
+    <main>
+        <div class="main--title text-uppercase text-white text-center">
+            <a class="navigation-before float-left d-flex flex-wrap position-absolute justify-content-center align-items-center" href="javascript:history.back()">
+                <span class="material-icons md-48 text-white">navigate_before</span>
+                <span class="navigation-before--text text-uppercase text-white">Voltar</span>
+            </a>
+            <h2>Lista de</h2>
+            <h1 class="font-weight-bold">Cadastrados</h1>
+        </div>
+        <div class="options d-flex flex-column col-md-12 col-sm-12">
+            <div class="d-flex">                                            
+                <div class="form-group text-white">
+                    <label for="usuario">Selecione o usuário</label>
+                    <select class="custom-select" id="usuario" name="usuario">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+            <table class="table bg-white mt-3">
+                <thead>
+                    <tr>
+                        <th scope="col">Véiculo</th>
+                        <th scope="col">Marca</th>
+                        <th scope="col">Modelo</th>
+                        <th scope="col">Ano</th>
+                        <th scope="col">Rodizio (Dia)</th>
+                        <th scope="col">Rodizio (Ativo)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tipo</td>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <td>Tipo</td>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer class="small d-flex justify-content-center align-items-center">
+        Rodrigo Santos | 2021 &copy; Todos os direitos reservados
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
+</body>
+</html>

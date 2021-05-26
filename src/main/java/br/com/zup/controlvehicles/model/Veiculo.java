@@ -4,43 +4,36 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
-import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity(name = "tbl_veiculo")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Veiculo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id = null;
+	private Long veiculoId = null;
 	
 	private String marca = "";
 	private String modelo = "";
 	private int ano = 0;
 	
-	@Transient
-	@JsonIgnore
-	private int diaRodizio = 0;
-	
-	@Transient
-	@JsonIgnore
-	private boolean rodizioAtivo = false;
-	
 	@ManyToOne
 	@JsonBackReference
 	private Usuario usuario = null;
 
-	public Long getId() {
-		return id;
+	public Long getVeiculoId() {
+		return veiculoId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setVeiculoId(Long veiculoId) {
+		this.veiculoId = veiculoId;
 	}
-
+	
 	public String getMarca() {
 		return marca;
 	}
@@ -63,22 +56,6 @@ public class Veiculo {
 
 	public void setAno(int ano) {
 		this.ano = ano;
-	}
-
-	public int getDiaRodizio() {
-		return diaRodizio;
-	}
-
-	public void setDiaRodizio(int diaRodizio) {
-		this.diaRodizio = diaRodizio;
-	}
-
-	public boolean isRodizioAtivo() {
-		return rodizioAtivo;
-	}
-
-	public void setRodizioAtivo(boolean rodizioAtivo) {
-		this.rodizioAtivo = rodizioAtivo;
 	}
 
 	public Usuario getUsuario() {

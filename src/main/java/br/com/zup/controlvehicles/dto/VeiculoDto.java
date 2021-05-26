@@ -2,6 +2,10 @@ package br.com.zup.controlvehicles.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import br.com.zup.controlvehicles.model.Caminhao;
+import br.com.zup.controlvehicles.model.Carro;
+import br.com.zup.controlvehicles.model.Moto;
+import br.com.zup.controlvehicles.model.TipoVeiculo;
 import br.com.zup.controlvehicles.model.Veiculo;
 
 public class VeiculoDto {
@@ -105,7 +109,15 @@ public class VeiculoDto {
 	}
 	
 	public Veiculo toVeiculo() {
-		Veiculo veiculo = new Veiculo();
+		Veiculo veiculo = null;
+		
+		if (this.tipoVeiculo == TipoVeiculo.CARRO.getCodTipoVeiculo()) {
+			veiculo = new Carro();
+		} else if (this.tipoVeiculo == TipoVeiculo.MOTO.getCodTipoVeiculo()) {
+			veiculo = new Moto();
+		} else {
+			veiculo = new Caminhao();
+		}
 		
 		veiculo.setMarca(this.marca);
 		veiculo.setModelo(this.modelo);
