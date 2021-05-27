@@ -1,17 +1,21 @@
 package br.com.zup.controlvehicles.model;
 
 import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Transient;
+
+import br.com.zup.controlvehicles.util.DiaRodizioUtil;
 
 @Entity(name = "tbl_carro")
-@PrimaryKeyJoinColumn(name="veiculoId")
 public class Carro extends Veiculo {
 
+	@Transient
 	private String diaRodizio = "";
+	
+	@Transient
 	private boolean rodizioAtivo = false;
 	
 	public String getDiaRodizio() {
-		return diaRodizio;
+		return DiaRodizioUtil.obtemDiaRodizioDescricao(this);
 	}
 	
 	public void setDiaRodizio(String diaRodizio) {
@@ -19,10 +23,15 @@ public class Carro extends Veiculo {
 	}
 	
 	public boolean isRodizioAtivo() {
-		return rodizioAtivo;
+		return DiaRodizioUtil.verificaRodizioAtivo(this);
 	}
 	
 	public void setRodizioAtivo(boolean rodizioAtivo) {
 		this.rodizioAtivo = rodizioAtivo;
+	}
+	
+	@Override
+	public TipoVeiculo getTipo() {
+		return TipoVeiculo.CARRO;
 	}
 }

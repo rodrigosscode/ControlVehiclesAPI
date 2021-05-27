@@ -15,7 +15,7 @@ import br.com.zup.controlvehicles.model.Marca;
 import br.com.zup.controlvehicles.response.ModeloResponse;
 
 @RestController
-@RequestMapping("veiculos")
+@RequestMapping("fipe/api/veiculos")
 public class FIPEApi {
 	
 	@Autowired

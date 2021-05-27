@@ -1,11 +1,22 @@
 package br.com.zup.controlvehicles.controller.form;
 
+import javax.validation.constraints.NotBlank;
+
 public class VeiculoForm {
 
+	@NotBlank
 	private String tipo = "";
+	
+	@NotBlank
 	private String marca = "";
+	
+	@NotBlank
 	private String modelo = "";
+	
+	@NotBlank
 	private String ano = "";
+	
+	@NotBlank
 	private Long usuarioId = null;
 	
 	public String getTipo() {

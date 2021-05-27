@@ -7,16 +7,20 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
-@Entity(name = "tbl_veiculo")
-@Inheritance(strategy = InheritanceType.JOINED)
-public class Veiculo {
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class Veiculo {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private Long veiculoId = null;
+	
+	@Transient
+	private TipoVeiculo tipo = null;
 	
 	private String marca = "";
 	private String modelo = "";
@@ -65,4 +69,6 @@ public class Veiculo {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+	
+	public abstract TipoVeiculo getTipo();
 }

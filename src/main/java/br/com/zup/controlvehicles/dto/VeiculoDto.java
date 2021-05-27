@@ -7,6 +7,7 @@ import br.com.zup.controlvehicles.model.Carro;
 import br.com.zup.controlvehicles.model.Moto;
 import br.com.zup.controlvehicles.model.TipoVeiculo;
 import br.com.zup.controlvehicles.model.Veiculo;
+import br.com.zup.controlvehicles.util.DiaRodizioUtil;
 
 public class VeiculoDto {
 
@@ -108,20 +109,22 @@ public class VeiculoDto {
 		this.siglaCombustivel = siglaCombustivel;
 	}
 	
-	public Veiculo toVeiculo() {
+	public Veiculo converteParaVeiculo() {
 		Veiculo veiculo = null;
 		
-		if (this.tipoVeiculo == TipoVeiculo.CARRO.getCodTipoVeiculo()) {
+		if (tipoVeiculo == TipoVeiculo.CARRO.getCodTipoVeiculo()) {
 			veiculo = new Carro();
-		} else if (this.tipoVeiculo == TipoVeiculo.MOTO.getCodTipoVeiculo()) {
+			Carro carro = (Carro) veiculo;
+			carro.setDiaRodizio(DiaRodizioUtil.obtemDiaRodizioDescricao(carro));
+		} else if (tipoVeiculo == TipoVeiculo.MOTO.getCodTipoVeiculo()) {
 			veiculo = new Moto();
 		} else {
 			veiculo = new Caminhao();
 		}
 		
-		veiculo.setMarca(this.marca);
-		veiculo.setModelo(this.modelo);
-		veiculo.setAno(this.anoModelo);
+		veiculo.setMarca(marca);
+		veiculo.setModelo(modelo);
+		veiculo.setAno(anoModelo);
 		
 		return veiculo;
 	}

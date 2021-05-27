@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
 
     <main>
         <div class="main--title text-uppercase text-white text-center">
-            <a class="navigation-before float-left d-flex flex-wrap position-absolute justify-content-center align-items-center" href="javascript:history.back()">
+            <a class="navigation-before float-left d-flex flex-wrap position-absolute justify-content-center align-items-center" th:href="@{/}">
                 <span class="material-icons md-48 text-white">navigate_before</span>
                 <span class="navigation-before--text text-uppercase text-white">Voltar</span>
             </a>
@@ -24,12 +24,16 @@
             <div class="d-flex">                                            
                 <div class="form-group text-white">
                     <label for="usuario">Selecione o usuário</label>
-                    <select class="custom-select" id="usuario" name="usuario">
+                    <select class="custom-select" id="usuarios" name="usuario">
                         <option value=""></option>
+                        <option th:each="usuario : ${usuarios}" 
+                        	th:value="${usuario.id}" 
+                        	th:text="${usuario.nome}">							            
+					    </option>
                     </select>
                 </div>
             </div>
-            <table class="table bg-white mt-3">
+            <table id="tabela-veiculos" class="table bg-white mt-3">
                 <thead>
                     <tr>
                         <th scope="col">Véiculo</th>
@@ -37,27 +41,10 @@
                         <th scope="col">Modelo</th>
                         <th scope="col">Ano</th>
                         <th scope="col">Rodizio (Dia)</th>
-                        <th scope="col">Rodizio (Ativo)</th>
+                        <th scope="col">Rodizio (Ativo Hoje)</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>Tipo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <td>Tipo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                    </tr>
-                </tbody>
+                <tbody></tbody>
             </table>
         </div>
     </main>
@@ -66,7 +53,8 @@
         Rodrigo Santos | 2021 &copy; Todos os direitos reservados
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/lista-veiculos-usuario.js"></script>
 </body>
 </html>
