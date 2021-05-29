@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-import br.com.zup.controlvehicles.model.Carro;
+import br.com.zup.controlvehicles.entity.Carro;
 
 public class DiaRodizioUtil {
 
@@ -44,11 +44,9 @@ public class DiaRodizioUtil {
 		String diaAtualSemana = dataAtual.getDayOfWeek()
 				.getDisplayName(TextStyle.FULL, new Locale("PT", "BR"));
 		
-		if (carro.getDiaRodizio().equals(diaAtualSemana)) {
-			return true;
-		}
+		boolean ativo = carro.getDiaRodizio().equals(diaAtualSemana);
 		
-		return false;
+		return ativo;
 	}
 
 	private static String obtemDescricaoRodizioPeloUltimoDigitoAno(int ultimoDigitoAno) {

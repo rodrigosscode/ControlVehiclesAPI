@@ -1,4 +1,4 @@
-package br.com.zup.controlvehicles.model;
+package br.com.zup.controlvehicles.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import br.com.zup.controlvehicles.model.TipoVeiculo;
 
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)

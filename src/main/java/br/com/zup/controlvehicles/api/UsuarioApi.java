@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.zup.controlvehicles.controller.form.UsuarioForm;
-import br.com.zup.controlvehicles.model.Usuario;
+import br.com.zup.controlvehicles.entity.Usuario;
 import br.com.zup.controlvehicles.service.UsuarioService;
 
 @RestController

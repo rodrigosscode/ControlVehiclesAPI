@@ -26,15 +26,5 @@ public enum TipoVeiculo {
 
 	public String getValorBusca() {
 		return valorBusca;
-	}	
-	
-	public static TipoVeiculo obtemPorCod(int codTipo) {
-		for(TipoVeiculo tipo : values()) {
-			if (tipo.codTipoVeiculo == codTipo) {
-				return tipo;
-			}
-		}
-		
-		return null;
 	}
 }

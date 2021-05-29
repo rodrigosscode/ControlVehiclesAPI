@@ -1,8 +1,9 @@
-package br.com.zup.controlvehicles.model;
+package br.com.zup.controlvehicles.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Transient;
 
+import br.com.zup.controlvehicles.model.TipoVeiculo;
 import br.com.zup.controlvehicles.util.DiaRodizioUtil;
 
 @Entity(name = "tbl_carro")

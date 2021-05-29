@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import br.com.zup.controlvehicles.model.Veiculo;
+import br.com.zup.controlvehicles.entity.Veiculo;
 
 public interface VeiculoRepository extends CrudRepository<Veiculo, Long>{
 

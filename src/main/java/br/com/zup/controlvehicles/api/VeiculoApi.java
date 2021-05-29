@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.zup.controlvehicles.controller.form.VeiculoForm;
 import br.com.zup.controlvehicles.dto.VeiculoDto;
-import br.com.zup.controlvehicles.model.Usuario;
-import br.com.zup.controlvehicles.model.Veiculo;
+import br.com.zup.controlvehicles.entity.Usuario;
+import br.com.zup.controlvehicles.entity.Veiculo;
 import br.com.zup.controlvehicles.service.UsuarioService;
 import br.com.zup.controlvehicles.service.VeiculoService;
 

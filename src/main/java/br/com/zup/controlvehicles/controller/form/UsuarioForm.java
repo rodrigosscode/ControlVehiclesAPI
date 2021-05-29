@@ -2,7 +2,7 @@ package br.com.zup.controlvehicles.controller.form;
 
 import javax.validation.constraints.NotBlank;
 
-import br.com.zup.controlvehicles.model.Usuario;
+import br.com.zup.controlvehicles.entity.Usuario;
 
 
 public class UsuarioForm {

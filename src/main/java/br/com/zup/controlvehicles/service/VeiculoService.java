@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.zup.controlvehicles.model.Veiculo;
+import br.com.zup.controlvehicles.entity.Veiculo;
 import br.com.zup.controlvehicles.repository.VeiculoRepository;
 
 @Service

@@ -2,11 +2,11 @@ package br.com.zup.controlvehicles.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import br.com.zup.controlvehicles.model.Caminhao;
-import br.com.zup.controlvehicles.model.Carro;
-import br.com.zup.controlvehicles.model.Moto;
+import br.com.zup.controlvehicles.entity.Caminhao;
+import br.com.zup.controlvehicles.entity.Carro;
+import br.com.zup.controlvehicles.entity.Moto;
+import br.com.zup.controlvehicles.entity.Veiculo;
 import br.com.zup.controlvehicles.model.TipoVeiculo;
-import br.com.zup.controlvehicles.model.Veiculo;
 import br.com.zup.controlvehicles.util.DiaRodizioUtil;
 
 public class VeiculoDto {

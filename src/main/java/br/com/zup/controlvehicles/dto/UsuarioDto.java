@@ -1,6 +1,6 @@
 package br.com.zup.controlvehicles.dto;
 
-import br.com.zup.controlvehicles.model.Usuario;
+import br.com.zup.controlvehicles.entity.Usuario;
 
 public class UsuarioDto {
 

@@ -1,4 +1,4 @@
-package br.com.zup.controlvehicles.model;
+package br.com.zup.controlvehicles.entity;
 
 import java.util.List;
 
@@ -80,12 +80,4 @@ public class Usuario {
 	public void setVeiculos(List<Veiculo> veiculos) {
 		this.veiculos = veiculos;
 	}
-
-	@Override
-	public String toString() {
-		return "Usuario [id=" + id + ", nome=" + nome + ", email=" + email + ", cpf=" + cpf + ", dataNascimento="
-				+ dataNascimento + ", veiculos=" + veiculos + "]";
-	}
-	
-	
 }
