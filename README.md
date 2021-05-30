@@ -42,22 +42,24 @@ Endpoint para Obter o "Veículo Completo":
 
 - "Cadastro de Usuário"
 
-
-	{
-		"nome":"Teste da Silva",
-		"email":"teste@email.com",
-		"cpf":"000000000",
-		"dataNascimento":"0000-00-00"
-	}
+~~~php
+{
+	"nome":"Teste da Silva",
+	"email":"teste@email.com",
+	"cpf":"000000000",
+	"dataNascimento":"0000-00-00"
+}
+~~~
  
  - "Cadastro de Veículos"
  
-	 {
-		"tipo":"carros", // Pode ser 'carros', 'motos' ou 'caminhoes'
-		"marca":"1",
-		"modelo":"1",
-		"ano":"1992-1",
-		"usuarioId": 0 //Você pode obter o ID Usuário através da "Lista de Usuários"
-	}
- 
+~~~php
+{
+	"tipo":"carros", // Pode ser 'carros', 'motos' ou 'caminhoes'
+	"marca":"1",
+	"modelo":"1",
+	"ano":"1992-1",
+	"usuarioId": 0 //Você pode obter o ID Usuário através da "Lista de Usuários"
+}
+~~~
  
