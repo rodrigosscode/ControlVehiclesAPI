@@ -128,11 +128,4 @@ public class VeiculoDto {
 		
 		return veiculo;
 	}
-
-	@Override
-	public String toString() {
-		return "VeiculoDto [valor=" + valor + ", marca=" + marca + ", modelo=" + modelo + ", anoModelo=" + anoModelo
-				+ ", combustivel=" + combustivel + ", codigoFipe=" + codigoFipe + ", mesReferencia=" + mesReferencia
-				+ ", tipoVeiculo=" + tipoVeiculo + ", siglaCombustivel=" + siglaCombustivel + "]";
-	}
 }

@@ -23,6 +23,10 @@ public class UsuarioService {
 		return repository.findById(id);
 	}
 	
+	public Optional<Usuario> obtemPorEmailOuCPF(String email, String cpf) {
+		return repository.findByEmailOrCPF(email, cpf);
+	}
+	
 	public List<Usuario> obtemTodos() {
 		return (List<Usuario>) repository.findAll();
 	}

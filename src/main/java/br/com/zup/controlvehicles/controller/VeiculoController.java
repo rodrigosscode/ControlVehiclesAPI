@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.zup.controlvehicles.api.FIPEApi;
 import br.com.zup.controlvehicles.controller.form.VeiculoForm;
 import br.com.zup.controlvehicles.dto.VeiculoDto;
 import br.com.zup.controlvehicles.entity.Usuario;
 import br.com.zup.controlvehicles.entity.Veiculo;
+import br.com.zup.controlvehicles.feign.client.FIPEClient;
 import br.com.zup.controlvehicles.model.TipoVeiculo;
 import br.com.zup.controlvehicles.service.UsuarioService;
 import br.com.zup.controlvehicles.service.VeiculoService;
@@ -26,7 +26,7 @@ public class VeiculoController {
 	private VeiculoService veiculoService;
 	
 	@Autowired 
-	private FIPEApi fipeApi;
+	private FIPEClient fipeClient;
 	
 	@Autowired
 	private UsuarioService usuarioService;
@@ -42,7 +42,7 @@ public class VeiculoController {
 	@PostMapping()
 	public ModelAndView cadastrar(VeiculoForm veiculoForm) {
 		
-		VeiculoDto veiculoDto = fipeApi.obtemVeiculo(
+		VeiculoDto veiculoDto = fipeClient.obtemVeiculo(
 				veiculoForm.getTipo(), 
 				veiculoForm.getMarca(), 
 				veiculoForm.getModelo(), 

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,14 +37,19 @@ public class VeiculoApi {
 	public ResponseEntity<?> adicionar(@RequestBody VeiculoForm veiculoForm) {
 		
 		try {
-			VeiculoDto veiculoDto = fipeApi.obtemVeiculo(
+			
+			ResponseEntity<?> veiculoDto = fipeApi.obtemVeiculo(
 					veiculoForm.getTipo(), 
 					veiculoForm.getMarca(), 
 					veiculoForm.getModelo(), 
 					veiculoForm.getAno()
 			);
 			
-			Veiculo veiculo = veiculoDto.converteParaVeiculo();
+			if (veiculoDto.getStatusCode() == HttpStatus.BAD_REQUEST) {
+				throw new Exception();
+			}
+			
+			Veiculo veiculo = ((VeiculoDto) veiculoDto.getBody()).converteParaVeiculo();
 
 			Optional<Usuario> usuario = usuarioService.obtemPorId(veiculoForm.getUsuarioId());
 			if (usuario.isPresent()) {
@@ -55,6 +61,7 @@ public class VeiculoApi {
 			} else {
 				return ResponseEntity.badRequest().body("Não foi possivel cadastrar o veículo, usuário inexistente.");
 			}
+			
 		} catch (Exception e) {
 			return ResponseEntity.badRequest().body("Não foi possivel cadastrar o veículo verifique os dados.");
 		}
@@ -69,10 +76,21 @@ public class VeiculoApi {
 	}
 	
 	@GetMapping("todos/usuario/{usuarioId}")
-	public ResponseEntity<List<Veiculo>> listarTodosPorUsuarioViaAPI(@PathVariable("usuarioId") Long usuarioId) {
+	public ResponseEntity<?> listarTodosPorUsuarioViaAPI(@PathVariable("usuarioId") String usuarioId) {
 		
-		List<Veiculo> veiculos = veiculoService.obtemTodosPorUsuario(usuarioId);
-
-		return ResponseEntity.ok(veiculos);
+		try {
+			long id = Long.parseLong(usuarioId);
+			Optional<Usuario> usuario = usuarioService.obtemPorId(id);
+			
+			if (!usuario.isPresent()) {
+				return new ResponseEntity<String>("Usuário não foi encontrado", HttpStatus.NOT_FOUND);
+			}
+			
+			List<Veiculo> veiculos = veiculoService.obtemTodosPorUsuario(id);
+			
+			return ResponseEntity.ok(veiculos);
+		} catch (Exception e) {
+			return ResponseEntity.badRequest().body("Não foi possivel realizar sua solicitação");
+		}
 	}
 }

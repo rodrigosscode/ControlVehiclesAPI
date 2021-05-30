@@ -4,19 +4,18 @@ import javax.validation.constraints.NotBlank;
 
 import br.com.zup.controlvehicles.entity.Usuario;
 
-
 public class UsuarioForm {
 	
-	@NotBlank
+	@NotBlank(message = "O nome não pode estar em branco!")
 	private String nome = "";
 	
-	@NotBlank
+	@NotBlank(message = "O e-mail não pode estar em branco!")
 	private String email = "";
 	
-	@NotBlank
+	@NotBlank(message = "O CPF não pode estar em branco!")
 	private String cpf = "";
 	
-	@NotBlank
+	@NotBlank(message = "A data de nascimento não pode estar em branco!")
 	private String dataNascimento = "";
 	
 	public String getNome() {
